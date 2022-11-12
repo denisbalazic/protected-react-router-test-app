@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 import {BrowserRouter} from 'react-router-dom';
-import {PrRoutes as Routes, PrRoute as Route} from "../../../src/index";
+import {PrRoutes as Routes, PrRoute as Route} from "../protected-react-router/src";
 import Home from "../components/Home";
 import NewDogForm from "../components/dogs/NewDogForm";
 import EditDogForm from "../components/dogs/EditDogForm";

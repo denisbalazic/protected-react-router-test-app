@@ -1,0 +1,3 @@
+[submodule "src/protected-react-router"]
+	path = src/protected-react-router
+	url = https://github.com/denisbalazic/protected-react-router.git
