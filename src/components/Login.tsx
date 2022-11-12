@@ -1,17 +1,17 @@
-import React, {useState} from 'react';
-import usePseudoStore from "../pseudoStore/usePseudoStore";
-import {useNavigate} from "react-router-dom";
+import React, {FormEvent, ReactElement, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import usePseudoStore from '../pseudoStore/usePseudoStore';
 
-const Login = () => {
+const Login = (): ReactElement => {
     const [role, setRole] = useState<string | undefined>();
     const {setUser} = usePseudoStore();
     const navigate = useNavigate();
 
-    const handleSubmit = (e: any) => {
+    const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         setUser(true, role ? [role] : undefined);
         navigate(`/`);
-    }
+    };
     return (
         <form onSubmit={handleSubmit}>
             <select value={role} onChange={(e) => setRole(e.target.value)}>
@@ -20,7 +20,7 @@ const Login = () => {
                 <option value="admin">admin</option>
                 <option value="superadmin">superadmin</option>
             </select>
-            <button>Submit</button>
+            <button type="button">Submit</button>
         </form>
     );
 };

@@ -1,15 +1,13 @@
-import React from 'react';
-import Router from "./router/Router";
-import FakeDBProvider from "./pseudoStore/pseudoStoreContext";
+import React, {ReactElement} from 'react';
+import SimpleRouter from './router/SimpleRouter';
+import FakeDBProvider from './pseudoStore/pseudoStoreContext';
 
-function App() {
+const App = (): ReactElement => {
     return (
-        <>
-            <FakeDBProvider>
-                <Router/>
-            </FakeDBProvider>
-        </>
+        <FakeDBProvider>
+            <SimpleRouter />
+        </FakeDBProvider>
     );
-}
+};
 
 export default App;

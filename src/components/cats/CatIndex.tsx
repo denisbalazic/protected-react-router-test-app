@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 
-const CatIndex = () => {
+const CatIndex = (): ReactElement => {
     return (
         <div>
             <p>Cat Index</p>

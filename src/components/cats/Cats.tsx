@@ -1,8 +1,8 @@
-import React from 'react';
-import {Link, NavLink, Outlet} from "react-router-dom";
-import usePseudoStore from "../../pseudoStore/usePseudoStore";
+import React, {ReactElement} from 'react';
+import {Link, NavLink, Outlet} from 'react-router-dom';
+import usePseudoStore from '../../pseudoStore/usePseudoStore';
 
-const Cats = () => {
+const Cats = (): ReactElement => {
     const {getCats} = usePseudoStore();
     const cats = getCats();
 
@@ -12,9 +12,9 @@ const Cats = () => {
                 {cats.map((cat: any) => (
                     <NavLink to={`/cats/${cat.id}`}>{cat.name}</NavLink>
                 ))}
-                <Link to={'/cats/new'}>Add New Cat</Link>
+                <Link to="/cats/new">Add New Cat</Link>
             </div>
-            <Outlet/>
+            <Outlet />
         </div>
     );
 };

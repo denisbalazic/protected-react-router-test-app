@@ -1,8 +1,8 @@
-import React from 'react';
-import {Link, useParams} from "react-router-dom";
-import usePseudoStore from "../../pseudoStore/usePseudoStore";
+import React, {ReactElement} from 'react';
+import {Link, useParams} from 'react-router-dom';
+import usePseudoStore from '../../pseudoStore/usePseudoStore';
 
-const Cat = () => {
+const Cat = (): ReactElement => {
     const {catId} = useParams();
     const {getCat} = usePseudoStore();
     const cat = getCat(Number(catId));

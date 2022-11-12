@@ -2,49 +2,49 @@ export const seed = {
     cats: [
         {
             id: 1,
-            name: 'Mrle'
+            name: 'Mrle',
         },
         {
             id: 2,
-            name: 'Kitty'
+            name: 'Kitty',
         },
         {
             id: 3,
-            name: 'Katty'
+            name: 'Katty',
         },
         {
             id: 4,
-            name: 'Tom'
+            name: 'Tom',
         },
         {
             id: 5,
-            name: 'Garfield'
+            name: 'Garfield',
         },
     ],
     dogs: [
         {
             id: 1,
-            name: 'Rex'
+            name: 'Rex',
         },
         {
             id: 2,
-            name: 'Thunder'
+            name: 'Thunder',
         },
         {
             id: 3,
-            name: 'Lassie'
+            name: 'Lassie',
         },
         {
             id: 4,
-            name: 'Hutch'
+            name: 'Hutch',
         },
         {
             id: 5,
-            name: 'Doggy Dog'
+            name: 'Doggy Dog',
         },
     ],
     user: {
         authed: false,
         roles: [],
-    }
-}
+    },
+};
