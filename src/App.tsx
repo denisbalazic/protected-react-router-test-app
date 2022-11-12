@@ -1,11 +1,14 @@
 import React, {ReactElement} from 'react';
-import SimpleRouter from './router/SimpleRouter';
 import FakeDBProvider from './pseudoStore/pseudoStoreContext';
+import PrRouterProvider from './router/routerContext';
+import RouterRouter from './router/RouterRouter';
 
 const App = (): ReactElement => {
     return (
         <FakeDBProvider>
-            <SimpleRouter />
+            <PrRouterProvider>
+                <RouterRouter />
+            </PrRouterProvider>
         </FakeDBProvider>
     );
 };

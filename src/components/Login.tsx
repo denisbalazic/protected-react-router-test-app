@@ -20,7 +20,7 @@ const Login = (): ReactElement => {
                 <option value="admin">admin</option>
                 <option value="superadmin">superadmin</option>
             </select>
-            <button type="button">Submit</button>
+            <button type="submit">Submit</button>
         </form>
     );
 };

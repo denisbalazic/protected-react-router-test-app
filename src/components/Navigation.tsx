@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
 import {NavLink} from 'react-router-dom';
 import usePseudoStore from '../pseudoStore/usePseudoStore';
+import RouterSelect from './RouterSelect';
 
 const Navigation = (): ReactElement => {
     const {getUser, setUser} = usePseudoStore();
@@ -23,6 +24,8 @@ const Navigation = (): ReactElement => {
             <NavLink to="/cats" end className={({isActive}) => (isActive ? 'navlink active' : 'navlink')}>
                 Cats
             </NavLink>
+
+            <RouterSelect />
 
             {authed ? (
                 <>
