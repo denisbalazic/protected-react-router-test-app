@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 import {NavLink} from 'react-router-dom';
-import useFakeDb from '../pseudoStore/useFakeDb';
 import RouterSelect from './RouterSelect';
 import useAuth from '../pseudoStore/useAuth';
 

@@ -3,10 +3,11 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import {docco} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {prRouterContext} from '../router/routerContext';
 import {combinedRouterCode, hierarchyRolesRouterCode, rolesRouterCode, simpleRouterCode} from '../router/routerCode.text';
-import {ProtectedWrapper} from '../protected-react-router/src';
+import {ProtectedWrapper, useLastLocation} from '../protected-react-router/src';
 
 const About = (): ReactElement => {
     const [prRouter] = useContext(prRouterContext);
+    const lastLocation = useLastLocation();
 
     const getRouterCode = (router: string): string => {
         switch (router) {
@@ -43,6 +44,7 @@ const About = (): ReactElement => {
             <ProtectedWrapper roles={['user', 'admin']}>
                 <p>this text is for user and admin</p>
             </ProtectedWrapper>
+            <p>{lastLocation.pathname}</p>
         </div>
     );
 };
