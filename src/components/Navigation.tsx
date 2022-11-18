@@ -28,7 +28,7 @@ const Navigation = (): ReactElement => {
 
             <RouterSelect />
 
-            {authenticated ? (
+            {authenticated || roles?.length ? (
                 <>
                     <div className="navlink" style={{display: 'flex'}}>
                         <p>Authed:</p>
