@@ -1,37 +1,31 @@
-import React, {ReactElement} from 'react';
+import React, {ReactElement, useContext} from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import {docco} from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {prRouterContext} from '../router/routerContext';
+import {combinedRouterCode, hierarchyRolesRouterCode, rolesRouterCode, simpleRouterCode} from '../router/routerCode.text';
 
 const About = (): ReactElement => {
-    const code = `<BrowserRouter>
-    <Routes
-        authenticated={user.authed}
-        notAuthenticatedRoute={'/login'}
-    >
-        <Route path={"/"} element={<Layout/>}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route  path={"dogs"} element={<Dogs />} >
-                <Route index element={<DogIndex />} />
-                <Route path={":dogId"} element={<Dog />} />
-                <Route path={":dogId/edit"} element={<EditDogForm />} />
-                <Route path={"new"} element={<NewDogForm />} />
-            </Route>
-            <Route path={"cats"} element={<Cats />} >
-                <Route index element={<CatIndex />} />
-                <Route path={":catId"} element={<Cat />} />
-                <Route path={":catId/edit"} element={<EditCatForm />} />
-                <Route path={"new"} element={<NewCatForm />} />
-            </Route>
-            <Route path={"login"} element={<Login />} />
-        </Route>
-    </Routes>
-</BrowserRouter>`;
+    const [prRouter] = useContext(prRouterContext);
+
+    const getRouterCode = (router: string): string => {
+        switch (router) {
+            case 'R1':
+                return simpleRouterCode;
+            case 'R2':
+                return rolesRouterCode;
+            case 'R3':
+                return combinedRouterCode;
+            case 'R4':
+                return hierarchyRolesRouterCode;
+            default:
+                return '';
+        }
+    };
 
     return (
         <div>
             <SyntaxHighlighter language="jsx" style={docco}>
-                {code}
+                {getRouterCode(prRouter)}
             </SyntaxHighlighter>
         </div>
     );
