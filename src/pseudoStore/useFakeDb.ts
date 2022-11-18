@@ -1,8 +1,8 @@
 import {useContext} from 'react';
-import {pseudoStoreContext} from './pseudoStoreContext';
+import {fakeDbContext} from './fakeDbContext';
 
-const usePseudoStore = () => {
-    const [db, setDb] = useContext(pseudoStoreContext);
+const useFakeDb = () => {
+    const [db, setDb] = useContext(fakeDbContext);
 
     const createDog = (dog: any) => {
         const newIndex = db.dogs.length + 1;
@@ -34,15 +34,7 @@ const usePseudoStore = () => {
         return db.cats.find((m: any) => m.id === id);
     };
 
-    const setUser = (authed: boolean, roles: string[] | undefined) => {
-        setDb({...db, user: {authed, roles}});
-    };
-
-    const getUser = () => {
-        return db.user;
-    };
-
-    return {createDog, editDog, getDogs, getDog, createCat, editCat, getCats, getCat, setUser, getUser};
+    return {createDog, editDog, getDogs, getDog, createCat, editCat, getCats, getCat};
 };
 
-export default usePseudoStore;
+export default useFakeDb;

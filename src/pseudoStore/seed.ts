@@ -43,8 +43,4 @@ export const seed = {
             name: 'Doggy Dog',
         },
     ],
-    user: {
-        authed: false,
-        roles: [],
-    },
 };

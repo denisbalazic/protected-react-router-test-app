@@ -1,10 +1,10 @@
 import React, {ReactElement} from 'react';
 import {Link, useParams} from 'react-router-dom';
-import usePseudoStore from '../../pseudoStore/usePseudoStore';
+import useFakeDb from '../../pseudoStore/useFakeDb';
 
 const Cat = (): ReactElement => {
     const {catId} = useParams();
-    const {getCat} = usePseudoStore();
+    const {getCat} = useFakeDb();
     const cat = getCat(Number(catId));
     return (
         <div>

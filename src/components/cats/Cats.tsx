@@ -1,9 +1,9 @@
 import React, {ReactElement} from 'react';
 import {Link, NavLink, Outlet} from 'react-router-dom';
-import usePseudoStore from '../../pseudoStore/usePseudoStore';
+import useFakeDb from '../../pseudoStore/useFakeDb';
 
 const Cats = (): ReactElement => {
-    const {getCats} = usePseudoStore();
+    const {getCats} = useFakeDb();
     const cats = getCats();
 
     return (

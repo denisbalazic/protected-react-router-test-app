@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 import {BrowserRouter} from 'react-router-dom';
-import {PrRoutes as Routes, PrRoute as Route} from '../protected-react-router/src';
+import {PrRoute as Route, PrRoutes as Routes} from '../protected-react-router/src';
 import Home from '../components/Home';
 import NewDogForm from '../components/dogs/NewDogForm';
 import EditDogForm from '../components/dogs/EditDogForm';
@@ -13,16 +13,15 @@ import DogIndex from '../components/dogs/DogIndex';
 import Cats from '../components/cats/Cats';
 import NewCatForm from '../components/cats/NewCatForm';
 import EditCatForm from '../components/cats/EditCatForm';
-import usePseudoStore from '../pseudoStore/usePseudoStore';
 import CatIndex from '../components/cats/CatIndex';
 import Cat from '../components/cats/Cat';
+import useAuth from '../pseudoStore/useAuth';
 
 const SimpleRouter = (): ReactElement => {
-    const {getUser} = usePseudoStore();
-    const user = getUser();
+    const {authenticated} = useAuth();
     return (
         <BrowserRouter>
-            <Routes authenticated={user.authed} notAuthenticatedRoute="/login">
+            <Routes authenticated={authenticated} notAuthenticatedRoute="/login">
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="about" element={<About />} />

@@ -1,9 +1,9 @@
 import React, {ReactElement} from 'react';
 import {Link, NavLink, Outlet} from 'react-router-dom';
-import usePseudoStore from '../../pseudoStore/usePseudoStore';
+import useFakeDb from '../../pseudoStore/useFakeDb';
 
 const Dogs = (): ReactElement => {
-    const {getDogs} = usePseudoStore();
+    const {getDogs} = useFakeDb();
     const dogs = getDogs();
 
     return (

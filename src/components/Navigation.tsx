@@ -1,13 +1,14 @@
 import React, {ReactElement} from 'react';
 import {NavLink} from 'react-router-dom';
-import usePseudoStore from '../pseudoStore/usePseudoStore';
+import useFakeDb from '../pseudoStore/useFakeDb';
 import RouterSelect from './RouterSelect';
+import useAuth from '../pseudoStore/useAuth';
 
 const Navigation = (): ReactElement => {
-    const {getUser, setUser} = usePseudoStore();
-    const {authed, roles} = getUser();
+    const {authenticated, roles, setAuthenticated, setRoles} = useAuth();
     const handleLogout = (): void => {
-        setUser(false, undefined);
+        setAuthenticated(false);
+        setRoles(undefined);
     };
 
     return (
@@ -27,7 +28,7 @@ const Navigation = (): ReactElement => {
 
             <RouterSelect />
 
-            {authed ? (
+            {authenticated ? (
                 <>
                     <div className="navlink" style={{display: 'flex'}}>
                         <p>Authed:</p>

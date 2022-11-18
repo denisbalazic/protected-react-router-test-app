@@ -1,11 +1,11 @@
 import React, {FormEvent, ReactElement, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import usePseudoStore from '../../pseudoStore/usePseudoStore';
+import useFakeDb from '../../pseudoStore/useFakeDb';
 
 const NewDogForm = (): ReactElement => {
     const navigate = useNavigate();
     const [dogName, setDogName] = useState('');
-    const {createDog} = usePseudoStore();
+    const {createDog} = useFakeDb();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
@@ -15,7 +15,7 @@ const NewDogForm = (): ReactElement => {
     return (
         <form onSubmit={handleSubmit}>
             <input type="text" value={dogName} onChange={(e) => setDogName(e.target.value)} />
-            <button type="button">Submit</button>
+            <button type="submit">Submit</button>
         </form>
     );
 };
