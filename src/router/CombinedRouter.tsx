@@ -15,11 +15,11 @@ import NewCatForm from '../components/cats/NewCatForm';
 import EditCatForm from '../components/cats/EditCatForm';
 import CatIndex from '../components/cats/CatIndex';
 import Cat from '../components/cats/Cat';
-import useAuth from '../pseudoStore/useAuth';
 import NotAuthorized from '../components/NotAuthorized';
 import Dragon from '../components/Dragon';
+import useAuth from '../pseudoStore/useAuth';
 
-const HierarchyRolesRouter = (): ReactElement => {
+const SimpleRouter = (): ReactElement => {
     const {roles} = useAuth();
 
     const notAuthenticatedAction = (): void => {
@@ -34,7 +34,6 @@ const HierarchyRolesRouter = (): ReactElement => {
         <BrowserRouter>
             <Routes
                 userRoles={roles}
-                rolesHierarchy={['user', 'admin', 'superadmin']}
                 notAuthenticatedRoute="/login"
                 notAuthenticatedAction={notAuthenticatedAction}
                 notAuthorizedRoute="/notAuthorized"
@@ -46,13 +45,13 @@ const HierarchyRolesRouter = (): ReactElement => {
                     <Route path="dogs" element={<Dogs />}>
                         <Route index element={<DogIndex />} />
                         <Route path=":dogId" element={<Dog />} />
-                        <Route roles={['user']} path=":dogId/edit" element={<EditDogForm />} />
-                        <Route roles={['user']} path="new" element={<NewDogForm />} />
+                        <Route isPrivate path=":dogId/edit" element={<EditDogForm />} />
+                        <Route isPrivate path="new" element={<NewDogForm />} />
                     </Route>
-                    <Route roles={['user']} path="cats" element={<Cats />}>
+                    <Route isPrivate path="cats" element={<Cats />}>
                         <Route index element={<CatIndex />} />
                         <Route path=":catId" element={<Cat />} />
-                        <Route roles={['admin']} path=":catId/edit" element={<EditCatForm />} />
+                        <Route roles={['admin', 'superadmin']} path=":catId/edit" element={<EditCatForm />} />
                         <Route roles={['superadmin']} path="new" element={<NewCatForm />} />
                     </Route>
                     <Route roles={['superadmin']} path="dragon" element={<Dragon />} />
@@ -64,4 +63,4 @@ const HierarchyRolesRouter = (): ReactElement => {
     );
 };
 
-export default HierarchyRolesRouter;
+export default SimpleRouter;

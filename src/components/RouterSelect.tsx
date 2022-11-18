@@ -13,7 +13,8 @@ const RouterSelect = (): ReactElement => {
             <select value={prRouter} onChange={handleRouterChange}>
                 <option value="R1">Simple Router</option>
                 <option value="R2">Roles Router</option>
-                <option value="R3">Hierarchy Roles Router</option>
+                <option value="R3">Combined Router</option>
+                <option value="R4">Hierarchy Roles Router</option>
             </select>
         </div>
     );

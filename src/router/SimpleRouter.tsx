@@ -16,12 +16,18 @@ import EditCatForm from '../components/cats/EditCatForm';
 import CatIndex from '../components/cats/CatIndex';
 import Cat from '../components/cats/Cat';
 import useAuth from '../pseudoStore/useAuth';
+import Dragon from '../components/Dragon';
 
 const SimpleRouter = (): ReactElement => {
     const {authenticated} = useAuth();
+
+    const notAuthenticatedAction = (): void => {
+        // do some stuff like clear state/reducer and toast a message
+    };
+
     return (
         <BrowserRouter>
-            <Routes authenticated={authenticated} notAuthenticatedRoute="/login">
+            <Routes authenticated={authenticated} notAuthenticatedRoute="/login" notAuthenticatedAction={notAuthenticatedAction}>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="about" element={<About />} />
@@ -37,6 +43,7 @@ const SimpleRouter = (): ReactElement => {
                         <Route path=":catId/edit" element={<EditCatForm />} />
                         <Route path="new" element={<NewCatForm />} />
                     </Route>
+                    <Route isPrivate path="dragon" element={<Dragon />} />
                     <Route path="login" element={<Login />} />
                 </Route>
             </Routes>

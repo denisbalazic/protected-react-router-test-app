@@ -20,20 +20,35 @@ import Dragon from '../components/Dragon';
 import useAuth from '../pseudoStore/useAuth';
 
 const SimpleRouter = (): ReactElement => {
-    const {authenticated, roles} = useAuth();
+    const {roles} = useAuth();
+
+    const notAuthenticatedAction = (): void => {
+        // do some stuff like clear state/reducer and toast a message
+    };
+
+    const notAuthorizedAction = (): void => {
+        // do some stuff like clear state/reducer and toast a message
+    };
+
     return (
         <BrowserRouter>
-            <Routes authenticated={authenticated} notAuthenticatedRoute="/login" userRoles={roles} notAuthorizedRoute="/notAuthorized">
+            <Routes
+                userRoles={roles}
+                notAuthenticatedRoute="/login"
+                notAuthenticatedAction={notAuthenticatedAction}
+                notAuthorizedRoute="/notAuthorized"
+                notAuthorizedAction={notAuthorizedAction}
+            >
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
                     <Route path="about" element={<About />} />
                     <Route path="dogs" element={<Dogs />}>
                         <Route index element={<DogIndex />} />
                         <Route path=":dogId" element={<Dog />} />
-                        <Route isPrivate path=":dogId/edit" element={<EditDogForm />} />
-                        <Route isPrivate path="new" element={<NewDogForm />} />
+                        <Route roles={['user', 'admin', 'superadmin']} path=":dogId/edit" element={<EditDogForm />} />
+                        <Route roles={['user', 'admin', 'superadmin']} path="new" element={<NewDogForm />} />
                     </Route>
-                    <Route isPrivate path="cats" element={<Cats />}>
+                    <Route roles={['user', 'admin', 'superadmin']} path="cats" element={<Cats />}>
                         <Route index element={<CatIndex />} />
                         <Route path=":catId" element={<Cat />} />
                         <Route roles={['admin', 'superadmin']} path=":catId/edit" element={<EditCatForm />} />
