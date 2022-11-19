@@ -1,17 +1,18 @@
 import React, {FormEvent, ReactElement, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import useAuth from '../pseudoStore/useAuth';
 
 const Login = (): ReactElement => {
     const [role, setRole] = useState<string | undefined>();
     const {setAuthenticated, setRoles} = useAuth();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         setAuthenticated(true);
         setRoles(role ? [role] : undefined);
-        navigate(`/`);
+        navigate(location.state.redirectedFromRoute || `/`);
     };
     return (
         <form onSubmit={handleSubmit}>
