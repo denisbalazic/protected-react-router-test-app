@@ -15,14 +15,20 @@ body {
 
 .navigation {
     display: flex;
-    align-content: baseline;
+    justify-content: space-between;
     height: 60px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid burlywood;
+}
+
+.navigation-section {
+    display: flex;
+    align-items: center;
 }
 
 .navlink {
     padding: 6px;
     font-size: 1.3em;
+    text-align: center;
     color: chocolate;
 }
 
