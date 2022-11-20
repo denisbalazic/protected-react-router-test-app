@@ -15,15 +15,18 @@ const Login = (): ReactElement => {
         navigate(location.state.redirectedFromRoute || `/`);
     };
     return (
-        <form onSubmit={handleSubmit}>
-            <select value={role} onChange={(e) => setRole(e.target.value)}>
-                <option value={undefined}>no role</option>
-                <option value="user">user</option>
-                <option value="admin">admin</option>
-                <option value="superadmin">superadmin</option>
-            </select>
-            <button type="submit">Submit</button>
-        </form>
+        <div className="container-centered">
+            <h3>Login</h3>
+            <form onSubmit={handleSubmit}>
+                <select value={role} onChange={(e) => setRole(e.target.value)}>
+                    <option value={undefined}>no role</option>
+                    <option value="user">user</option>
+                    <option value="admin">admin</option>
+                    <option value="superadmin">superadmin</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     );
 };
 

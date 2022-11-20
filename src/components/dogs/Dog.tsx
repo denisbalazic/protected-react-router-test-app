@@ -7,8 +7,9 @@ const Dog = (): ReactElement => {
     const {getDog} = useFakeDb();
     const dog = getDog(Number(dogId));
     return (
-        <div>
-            <p>{dog.name}</p>
+        <div className="card">
+            <h3>{dog.name}</h3>
+            <img src={dog.image} alt="" />
             <Link to={`/dogs/${dogId}/edit`}>Edit</Link>
         </div>
     );

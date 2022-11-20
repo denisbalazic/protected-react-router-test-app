@@ -7,8 +7,9 @@ const Cat = (): ReactElement => {
     const {getCat} = useFakeDb();
     const cat = getCat(Number(catId));
     return (
-        <div>
-            <p>{cat.name}</p>
+        <div className="card">
+            <h3>{cat.name}</h3>
+            <img src={cat.image} alt="" />
             <Link to={`/cats/${catId}/edit`}>Edit</Link>
         </div>
     );
