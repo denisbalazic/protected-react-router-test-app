@@ -2,7 +2,7 @@ export const simpleRouterCode = `<BrowserRouter>
     <Routes authenticated={authenticated} notAuthenticatedRoute="/login" notAuthenticatedAction={notAuthenticatedAction}>
         <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
+            <Route path="router" element={<RouterPage />} />
             <Route path="dogs" element={<Dogs />}>
                 <Route index element={<DogIndex />} />
                 <Route path=":dogId" element={<Dog />} />
@@ -31,7 +31,7 @@ export const rolesRouterCode = `<BrowserRouter>
     >
         <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
+            <Route path="router" element={<RouterPage />} />
             <Route path="dogs" element={<Dogs />}>
                 <Route index element={<DogIndex />} />
                 <Route path=":dogId" element={<Dog />} />
@@ -61,7 +61,7 @@ export const combinedRouterCode = `<BrowserRouter>
     >
         <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
+            <Route path="router" element={<RouterPage />} />
             <Route path="dogs" element={<Dogs />}>
                 <Route index element={<DogIndex />} />
                 <Route path=":dogId" element={<Dog />} />
@@ -92,7 +92,7 @@ export const hierarchyRolesRouterCode = `<BrowserRouter>
     >
         <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
+            <Route path="router" element={<RouterPage />} />
             <Route path="dogs" element={<Dogs />}>
                 <Route index element={<DogIndex />} />
                 <Route path=":dogId" element={<Dog />} />

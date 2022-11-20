@@ -10,13 +10,13 @@ const RouterRouter = (): ReactElement | null => {
 
     const getRouter = (router: string): ReactElement | null => {
         switch (router) {
-            case 'R1':
+            case 'Simple':
                 return <SimpleRouter />;
-            case 'R2':
+            case 'Roles':
                 return <RolesRouter />;
-            case 'R3':
+            case 'Combined':
                 return <CombinedRouter />;
-            case 'R4':
+            case 'Hierarchy roles':
                 return <HierarchyRolesRouter />;
             default:
                 return null;

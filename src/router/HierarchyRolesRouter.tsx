@@ -6,7 +6,7 @@ import NewDogForm from '../components/dogs/NewDogForm';
 import EditDogForm from '../components/dogs/EditDogForm';
 import Dog from '../components/dogs/Dog';
 import Dogs from '../components/dogs/Dogs';
-import About from '../components/About';
+import RouterPage from '../components/RouterPage';
 import Login from '../components/Login';
 import Layout from '../components/Layout';
 import DogIndex from '../components/dogs/DogIndex';
@@ -42,7 +42,7 @@ const HierarchyRolesRouter = (): ReactElement => {
             >
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
-                    <Route path="about" element={<About />} />
+                    <Route path="router" element={<RouterPage />} />
                     <Route path="dogs" element={<Dogs />}>
                         <Route index element={<DogIndex />} />
                         <Route path=":dogId" element={<Dog />} />

@@ -4,20 +4,21 @@ import {docco} from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {prRouterContext} from '../router/routerContext';
 import {combinedRouterCode, hierarchyRolesRouterCode, rolesRouterCode, simpleRouterCode} from '../router/routerCode.text';
 import {ProtectedWrapper, useLastLocation} from '../protected-react-router/src';
+import RouterSelect from './RouterSelect';
 
-const About = (): ReactElement => {
+const RouterPage = (): ReactElement => {
     const [prRouter] = useContext(prRouterContext);
     const lastLocation = useLastLocation();
 
     const getRouterCode = (router: string): string => {
         switch (router) {
-            case 'R1':
+            case 'Simple':
                 return simpleRouterCode;
-            case 'R2':
+            case 'Roles':
                 return rolesRouterCode;
-            case 'R3':
+            case 'Combined':
                 return combinedRouterCode;
-            case 'R4':
+            case 'Hierarchy roles':
                 return hierarchyRolesRouterCode;
             default:
                 return '';
@@ -26,6 +27,8 @@ const About = (): ReactElement => {
 
     return (
         <div>
+            <p>You can select which router will be used in app:</p>
+            <RouterSelect />
             <SyntaxHighlighter language="jsx" style={docco}>
                 {getRouterCode(prRouter)}
             </SyntaxHighlighter>
@@ -44,9 +47,9 @@ const About = (): ReactElement => {
             <ProtectedWrapper roles={['user', 'admin']}>
                 <p>this text is for user and admin</p>
             </ProtectedWrapper>
-            <p>{lastLocation.pathname}</p>
+            <p>{lastLocation?.pathname}</p>
         </div>
     );
 };
 
-export default About;
+export default RouterPage;

@@ -1,10 +1,12 @@
-import React, {ReactElement} from 'react';
+import React, {ReactElement, useContext} from 'react';
 import {NavLink} from 'react-router-dom';
-import RouterSelect from './RouterSelect';
 import useAuth from '../pseudoStore/useAuth';
+import {prRouterContext} from '../router/routerContext';
 
 const Navigation = (): ReactElement => {
     const {authenticated, roles, setAuthenticated, setRoles} = useAuth();
+    const [prRouter] = useContext(prRouterContext);
+
     const handleLogout = (): void => {
         setAuthenticated(false);
         setRoles(undefined);
@@ -15,8 +17,8 @@ const Navigation = (): ReactElement => {
             <NavLink to="/" end className={({isActive}) => (isActive ? 'navlink active' : 'navlink')}>
                 Home
             </NavLink>
-            <NavLink to="/about" end className={({isActive}) => (isActive ? 'navlink active' : 'navlink')}>
-                About
+            <NavLink to="/router" end className={({isActive}) => (isActive ? 'navlink active' : 'navlink')}>
+                Router
             </NavLink>
             <NavLink to="/dogs" end className={({isActive}) => (isActive ? 'navlink active' : 'navlink')}>
                 Dogs
@@ -25,7 +27,7 @@ const Navigation = (): ReactElement => {
                 Cats
             </NavLink>
 
-            <RouterSelect />
+            <p className="navlink">Router: {prRouter}</p>
 
             {authenticated || roles?.length ? (
                 <>

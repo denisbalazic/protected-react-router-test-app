@@ -1,12 +1,23 @@
 body {
     font-family: sans-serif;
+    height: 100vh;
+}
+
+#root {
+    height: 100%;
+}
+
+.layout-container {
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1200px;
 }
 
 .navigation {
     display: flex;
     align-content: baseline;
     height: 60px;
-    background: #0f0f0f;
+    border-bottom: 1px solid black;
 }
 
 .navlink {

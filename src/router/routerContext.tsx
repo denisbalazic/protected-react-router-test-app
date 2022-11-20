@@ -3,7 +3,7 @@ import React, {createContext, PropsWithChildren, ReactElement, useMemo, useState
 export const prRouterContext = createContext<any[]>([]);
 
 const PrRouterProvider = ({children}: PropsWithChildren): ReactElement => {
-    const [prRouter, setPrRouter] = useState('R1');
+    const [prRouter, setPrRouter] = useState('Simple');
     const contextValue = useMemo(() => [prRouter, setPrRouter], [prRouter, setPrRouter]);
 
     return <prRouterContext.Provider value={contextValue}>{children}</prRouterContext.Provider>;

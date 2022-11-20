@@ -9,12 +9,12 @@ const RouterSelect = (): ReactElement => {
     };
 
     return (
-        <div style={{color: 'white'}}>
+        <div>
             <select value={prRouter} onChange={handleRouterChange}>
-                <option value="R1">Simple Router</option>
-                <option value="R2">Roles Router</option>
-                <option value="R3">Combined Router</option>
-                <option value="R4">Hierarchy Roles Router</option>
+                <option value="Simple">Simple Router</option>
+                <option value="Roles">Roles Router</option>
+                <option value="Combined">Combined Router</option>
+                <option value="Hierarchy roles">Hierarchy Roles Router</option>
             </select>
         </div>
     );

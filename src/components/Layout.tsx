@@ -4,10 +4,10 @@ import Navigation from './Navigation';
 
 const Layout = (): ReactElement => {
     return (
-        <>
+        <div className="layout-container">
             <Navigation />
             <Outlet />
-        </>
+        </div>
     );
 };
 
