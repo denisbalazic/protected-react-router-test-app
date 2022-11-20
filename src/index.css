@@ -1,17 +1,38 @@
 body {
     font-family: sans-serif;
+    height: 100vh;
+}
+
+#root {
+    height: 100%;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+.layout-container {
+    margin: 0 auto;
+    height: 100%;
+    max-width: 1200px;
 }
 
 .navigation {
     display: flex;
-    align-content: baseline;
+    justify-content: space-between;
     height: 60px;
-    background: #0f0f0f;
+    border-bottom: 1px solid burlywood;
+}
+
+.navigation-section {
+    display: flex;
+    align-items: center;
 }
 
 .navlink {
     padding: 6px;
     font-size: 1.3em;
+    text-align: center;
     color: chocolate;
 }
 
@@ -22,16 +43,38 @@ body {
 .main {
     display: flex;
     height: 100%;
-    background: antiquewhite;
 }
 
 .sidebar {
     display: flex;
     flex-direction: column;
-    background: aqua;
 }
 
 input {
     border-bottom: 1px solid black;
     background: aliceblue;
+}
+
+.container-centered {
+    margin: 200px auto;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container-centered form {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    margin: 100px auto;
+    width: 400px;
+}
+
+.card img {
+    height: 300px;
 }

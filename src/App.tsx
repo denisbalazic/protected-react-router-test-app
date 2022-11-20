@@ -1,15 +1,19 @@
-import React from 'react';
-import Router from "./router/Router";
-import FakeDBProvider from "./pseudoStore/pseudoStoreContext";
+import React, {ReactElement} from 'react';
+import FakeDBProvider from './pseudoStore/fakeDbContext';
+import PrRouterProvider from './router/routerContext';
+import RouterRouter from './router/RouterRouter';
+import AuthProvider from './pseudoStore/authContext';
 
-function App() {
+const App = (): ReactElement => {
     return (
-        <>
-            <FakeDBProvider>
-                <Router/>
-            </FakeDBProvider>
-        </>
+        <FakeDBProvider>
+            <AuthProvider>
+                <PrRouterProvider>
+                    <RouterRouter />
+                </PrRouterProvider>
+            </AuthProvider>
+        </FakeDBProvider>
     );
-}
+};
 
 export default App;

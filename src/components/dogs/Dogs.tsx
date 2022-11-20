@@ -1,9 +1,9 @@
-import React from 'react';
-import {Link, NavLink, Outlet} from "react-router-dom";
-import usePseudoStore from "../../pseudoStore/usePseudoStore";
+import React, {ReactElement} from 'react';
+import {Link, NavLink, Outlet} from 'react-router-dom';
+import useFakeDb from '../../pseudoStore/useFakeDb';
 
-const Dogs = () => {
-    const {getDogs} = usePseudoStore();
+const Dogs = (): ReactElement => {
+    const {getDogs} = useFakeDb();
     const dogs = getDogs();
 
     return (
@@ -12,9 +12,9 @@ const Dogs = () => {
                 {dogs.map((dog: any) => (
                     <NavLink to={`/dogs/${dog.id}`}>{dog.name}</NavLink>
                 ))}
-                <Link to={'/dogs/new'}>Add New Dog</Link>
+                <Link to="/dogs/new">Add New Dog</Link>
             </div>
-            <Outlet/>
+            <Outlet />
         </div>
     );
 };

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {ReactElement} from 'react';
 
-const DogIndex = () => {
+const DogIndex = (): ReactElement => {
     return (
         <div>
             <p>DogIndex</p>

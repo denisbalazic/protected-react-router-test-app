@@ -1,11 +1,11 @@
 import React, {ReactElement} from 'react';
 
-const CatIndex = (): ReactElement => {
+const Dragon = (): ReactElement => {
     return (
         <div>
-            <p>Cat Index</p>
+            <p>Dragon</p>
         </div>
     );
 };
 
-export default CatIndex;
+export default Dragon;
